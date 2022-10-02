@@ -1,0 +1,145 @@
+body {
+  background-color: rgb(209, 180, 198);
+}
+
+#show-form-btn {
+  margin: auto;
+}
+
+.container {
+  position: relative;
+  width: 60%;
+  margin: auto;
+  justify-content: space-around;
+  align-content: center;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+h1 {
+  text-align: center;
+  margin: 50px;
+  font-size: 60px;
+  font-family: "Mukta", sans-serif;
+  color: #672a4e;
+}
+
+#input-task {
+  width: 350px;
+  height: 50px;
+  border: 2px groove #672a4e;
+  border-radius: 25px;
+  margin: 10px;
+  font-size: 20px;
+  color: #672a4e;
+  font-family: "Lora", serif;
+}
+
+button {
+  width: 150px;
+  height: 55px;
+  margin: 10px;
+  color: antiquewhite;
+  font-family: "Lora", serif;
+  font-weight: bold;
+  border: 2px groove #672a4e;
+  border-radius: 25px;
+  background-color: #672a4e;
+  font-size: 20px;
+}
+
+ul {
+  position: relative;
+  width: 100%;
+  list-style-type: none;
+}
+
+li {
+  width: 50em;
+  margin-bottom: 20px;
+  align-items: baseline;
+}
+
+span {
+  font-size: 30px;
+  font-family: "Lora", serif;
+  color: #672a4e;
+  width: 300px;
+  margin-left: auto;
+  margin-right: 2em;
+}
+
+#deadline {
+  width: 150px;
+  height: 55px;
+  margin: 10px;
+  color: antiquewhite;
+  font-family: "Lora", serif;
+  font-weight: bold;
+  border: 2px groove #672a4e;
+  border-radius: 25px;
+  background-color: #672a4e;
+  font-size: 20px;
+}
+
+#deadline:hover {
+  background-color: antiquewhite;
+  color: #672a4e;
+}
+
+#select {
+  width: 150px;
+  height: 55px;
+  margin: 10px;
+  color: antiquewhite;
+  font-family: "Lora", serif;
+  font-weight: bold;
+  border: 2px groove #672a4e;
+  border-radius: 25px;
+  background-color: #672a4e;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: antiquewhite;
+  color: #672a4e;
+}
+
+#select:hover {
+  background-color: antiquewhite;
+  color: #672a4e;
+}
+.title {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 700;
+  margin-right: 2em;
+}
+
+.in-progress {
+  background-color: rgb(208, 255, 0);
+}
+
+.not-started {
+  background-color: rgb(185, 72, 72);
+}
+
+.done {
+  background-color: rgb(59, 187, 59);
+}
+
+#examples {
+  display: flex;
+  align-items: center;
+  width: 40em;
+  margin: auto;
+}
+
+#examples li {
+  margin: 2em;
+  width: 10em;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1em;
+  padding: 1em;
+  border-radius: 15px;
+}

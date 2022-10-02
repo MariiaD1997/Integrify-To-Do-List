@@ -8,6 +8,43 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <header><h1>To-Do List</h1></header>
+    <main>
+        <section id="add-task">
+            <div class="container">
+                <button id="show-form-btn">ADD TASK</button>
+            </div>
+        </section>
+        <section id="add-form">
+            <div id="first-input" class="container">
+                <form action="" id="input-form">
+                    <input type="text" id="input-task" name="input-task">
+                    <input type="date" name="date" id="deadline">
+                    <select name="select" id="select">
+                        <option value="not-started">Not started</option>
+                        <option value="in-progrees">In progress</option>
+                        <option value="Done">Done</option>
+                    </select>
+        <button id="add-task-button">Add</button>
+        <button id="cancel-button">Cancel</button>
+                </form>
+            </div>
+        </section>
+        <section id="list"> 
+            <div id="list-container" class="container">
+            <ul id="task-list"></ul>
+        </div>
+    </section>
+    </main>
+<footer>
+    <ul id="examples">
+        <li class="done">Done</li>
+        <li class="not-started">Not Started</li>
+        <li class="in-progress">In progress</li>
+    </ul>
+</footer>
+<script src="index.js"></script>
+</body>
+</html>
 </body>
 </html>
