@@ -116,15 +116,15 @@ button:hover {
 }
 
 .in-progress {
-  background-color: rgb(208, 255, 0);
+  background-color: red;
 }
 
 .not-started {
-  background-color: rgb(185, 72, 72);
+  background-color: blue;
 }
 
 .done {
-  background-color: rgb(59, 187, 59);
+  background-color: green;
 }
 
 #examples {

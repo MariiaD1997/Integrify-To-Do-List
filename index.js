@@ -5,6 +5,7 @@ const inputOption = document.querySelector("#select");
 const taskBtn = document.getElementById("add-task-button");
 const showFormBtn = document.getElementById("show-form-btn");
 const cancelButton = document.getElementById("cancel-button");
+let borderColor = "";
 
 document.getElementById("input-form").style.display = "none";
 
@@ -54,30 +55,19 @@ const renderList = (todoList) => {
 
 //create function to make model of new task
 const renderItem = (item) => {
-  const makeLi = document.createElement("li");
-
-  //move input into list
-  const title = document.createElement("span");
-  title.setAttribute("class", "todo-title");
-  title.innerHTML = item.name;
-  makeLi.append(title);
-
-  //move deadline into list
-  const deadline = document.createElement("span");
-  deadline.setAttribute("class", "todo-deadline");
-  deadline.innerHTML = `Deadline: ${item.deadline}`;
-  makeLi.appendChild(deadline);
-
-  //move selected option into list
-  const option = document.createElement("span");
-  option.setAttribute("class", "todo-status");
-  option.innerHTML = item.status;
+  const listItem = document.createElement("li");
+  const title = item.name;
+  const deadline = item.deadline;
+  const status = item.status;
+  listItem.innerHTML = `<h4>${title}</h4> <p>Deadline: ${deadline}</p>`;
+  switchColor(item);
+  listItem.style.borderLeft = `5px solid ${borderColor}`;
 
   //move edit button into list
   const editButton = document.createElement("button");
   editButton.setAttribute("class", "edit-btn");
   editButton.innerHTML = "EDIT";
-  makeLi.appendChild(editButton);
+  listItem.appendChild(editButton);
 
   //move delete button into list
   const deleteButton = document.createElement("button");
@@ -91,8 +81,8 @@ const renderItem = (item) => {
     updateLocalStorage();
     renderList(todoList);
   });
-  makeLi.appendChild(deleteButton);
-  return makeLi;
+  listItem.appendChild(deleteButton);
+  return listItem;
 };
 
 //create button to add new tasks
@@ -119,6 +109,23 @@ taskBtn.addEventListener("click", (e) => {
     deadline.value = "";
   }
 });
+
+const switchColor = (item) => {
+  // const status = item.status;
+  switch (item.status) {
+    case "done":
+      borderColor = "green";
+      break;
+    case "in progress":
+      borderColor = "red";
+      break;
+    case "not started":
+      borderColor = "blue";
+      break;
+    default:
+      borderColor = "green";
+  }
+};
 
 //mutate array into strings
 const updateLocalStorage = () => {
