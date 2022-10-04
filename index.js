@@ -3,22 +3,25 @@ const inputText = document.querySelector("#input-task");
 const inputDeadline = document.querySelector("#deadline");
 const inputOption = document.querySelector("#select");
 const taskBtn = document.getElementById("add-task-button");
+const saveBtn = document.getElementById("save");
 const showFormBtn = document.getElementById("show-form-btn");
 const cancelButton = document.getElementById("cancel-button");
+const form = document.getElementById("input-form");
 let borderColor = "";
 
-document.getElementById("input-form").style.display = "none";
+form.style.display = "none";
+saveBtn.style.display = "none";
 
 //create event to show input form
 showFormBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  document.getElementById("input-form").style.display = "flex";
+  form.style.display = "flex";
 });
 
 //create event to hide input form
 cancelButton.addEventListener("click", (e) => {
   e.preventDefault();
-  document.getElementById("input-form").style.display = "none";
+  form.style.display = "none";
   showFormBtn.style.display = "block";
 });
 
@@ -62,13 +65,7 @@ const renderItem = (item) => {
   listItem.innerHTML = `<h4>${title}</h4> <p>Deadline: ${deadline}</p>`;
   switchColor(item);
   listItem.style.borderLeft = `5px solid ${borderColor}`;
-
-  //move edit button into list
-  const editButton = document.createElement("button");
-  editButton.setAttribute("class", "edit-btn");
-  editButton.innerHTML = "EDIT";
-  listItem.appendChild(editButton);
-
+  insertEditBtn(listItem, title, deadline, item);
   //move delete button into list
   const deleteButton = document.createElement("button");
   deleteButton.setAttribute("class", "delete-btn");
@@ -91,7 +88,9 @@ taskBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     //create object and its properties
-    let newTask = {};
+    let newTask = {
+      id: Math.random().toString(16).slice(2),
+    };
     newTask.name = inputText.value;
     newTask.deadline = inputDeadline.value;
     newTask.status = inputOption.value;
@@ -104,14 +103,37 @@ taskBtn.addEventListener("click", (e) => {
 
     renderList(todoList);
 
-    //  clear input
-    inputText.value = "";
-    deadline.value = "";
+    clearInput();
   }
 });
 
+/* const insertEditBtn = (listItem, title, deadline, item) => {
+  const editButton = document.createElement("button");
+  editButton.setAttribute("class", "edit-btn");
+  editButton.innerHTML = "EDIT";
+  editButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    saveBtn.style.display = "inline";
+    taskBtn.style.display = "none";
+    form.style.display = "block";
+  });
+  listItem.appendChild(editButton);
+};
+
+const saveEditedTodo = (currentItem) => {
+  saveBtn.addEventListener("click", (e) => {
+    clearInput();
+  });
+};
+*/
+const clearInput = () => {
+  form.style.display = "none";
+  inputText.value = "";
+  inputDeadline.value = "";
+  inputOption.value = "";
+};
+
 const switchColor = (item) => {
-  // const status = item.status;
   switch (item.status) {
     case "done":
       borderColor = "green";

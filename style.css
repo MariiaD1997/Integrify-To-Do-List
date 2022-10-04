@@ -24,7 +24,7 @@ h1 {
   color: #672a4e;
 }
 
-#input-task {
+input[type="text"] {
   width: 350px;
   height: 50px;
   border: 2px groove #672a4e;
@@ -69,7 +69,7 @@ span {
   margin-right: 2em;
 }
 
-#deadline {
+input[type="date"] {
   width: 150px;
   height: 55px;
   margin: 10px;
