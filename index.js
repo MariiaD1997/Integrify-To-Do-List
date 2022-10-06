@@ -56,6 +56,17 @@ const renderList = (todoList) => {
   });
 };
 
+//Function to update changed items
+/*
+const updateTodolist = (todoList, item) => {
+  todoList.forEach((element, index) => {
+    if (element.id === item.id) {
+      todoList[index] = element;
+    }
+  });
+};
+*/
+
 //create function to make model of new task
 const renderItem = (item) => {
   const listItem = document.createElement("li");
@@ -65,6 +76,7 @@ const renderItem = (item) => {
   listItem.innerHTML = `<h4>${title}</h4> <p>Deadline: ${deadline}</p>`;
   switchColor(item);
   listItem.style.borderLeft = `5px solid ${borderColor}`;
+  const id = item.id;
   insertEditBtn(listItem, title, deadline, item);
   //move delete button into list
   const deleteButton = document.createElement("button");
@@ -88,12 +100,11 @@ taskBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     //create object and its properties
-    let newTask = {
-      id: Math.random().toString(16).slice(2),
-    };
+    let newTask = {};
     newTask.name = inputText.value;
     newTask.deadline = inputDeadline.value;
     newTask.status = inputOption.value;
+    newTask.id = Math.random().toString(16).slice(2);
 
     //add object into array
     if (inputText.value !== 0) {
@@ -107,25 +118,25 @@ taskBtn.addEventListener("click", (e) => {
   }
 });
 
-/* const insertEditBtn = (listItem, title, deadline, item) => {
+/*
+const insertEditBtn = (listItem, title, deadline, item) => {
   const editButton = document.createElement("button");
   editButton.setAttribute("class", "edit-btn");
   editButton.innerHTML = "EDIT";
   editButton.addEventListener("click", (e) => {
     e.preventDefault();
+
     saveBtn.style.display = "inline";
     taskBtn.style.display = "none";
     form.style.display = "block";
+    title.value = listItem.querySelector("h4").innerText;
+    deadline.value = listItem.querySelector("p").innerText;
   });
+  updateTodoList(todolist, item);
   listItem.appendChild(editButton);
 };
-
-const saveEditedTodo = (currentItem) => {
-  saveBtn.addEventListener("click", (e) => {
-    clearInput();
-  });
-};
 */
+
 const clearInput = () => {
   form.style.display = "none";
   inputText.value = "";
