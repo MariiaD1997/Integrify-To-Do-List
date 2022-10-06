@@ -61,7 +61,6 @@ const renderItem = (item) => {
   const listItem = document.createElement("li");
   const title = item.name;
   const deadline = item.deadline;
-  const status = item.status;
   listItem.innerHTML = `<h4>${title}</h4> <p>Deadline: ${deadline}</p>`;
   switchColor(item);
   listItem.style.borderLeft = `5px solid ${borderColor}`;
@@ -119,20 +118,26 @@ const insertEditBtn = (listItem, title, deadline, newTask) => {
     inputText.value = newTask.name;
     inputDeadline.value = newTask.deadline;
     editedTask = newTask;
-    return editedTask;
   });
+
   listItem.appendChild(editButton);
 };
 
 saveBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  renderList(todoList);
-  todoList.forEach((element, index) => {
+  todoList.forEach((element) => {
     if (element.id === editedTask.id) {
-      todoList[index] = element;
+      editedTask.name = inputText.value;
+      editedTask.deadline = inputDeadline.value;
+      editedTask.status = inputOption.value;
+      console.log(editedTask);
+      todoList.push(editedTask);
+      renderList(todoList);
     }
   });
+  // todoList[index] = element;
 });
+
 const clearInput = () => {
   form.style.display = "none";
   inputText.value = "";
