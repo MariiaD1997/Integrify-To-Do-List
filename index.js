@@ -56,17 +56,6 @@ const renderList = (todoList) => {
   });
 };
 
-//Function to update changed items
-/*
-const updateTodolist = (todoList, item) => {
-  todoList.forEach((element, index) => {
-    if (element.id === item.id) {
-      todoList[index] = element;
-    }
-  });
-};
-*/
-
 //create function to make model of new task
 const renderItem = (item) => {
   const listItem = document.createElement("li");
@@ -76,7 +65,7 @@ const renderItem = (item) => {
   listItem.innerHTML = `<h4>${title}</h4> <p>Deadline: ${deadline}</p>`;
   switchColor(item);
   listItem.style.borderLeft = `5px solid ${borderColor}`;
-  const id = item.id;
+  listItem.id = item.id;
   insertEditBtn(listItem, title, deadline, item);
   //move delete button into list
   const deleteButton = document.createElement("button");
@@ -118,24 +107,33 @@ taskBtn.addEventListener("click", (e) => {
   }
 });
 
-/*
-const insertEditBtn = (listItem, title, deadline, item) => {
+const insertEditBtn = (listItem, title, deadline, newTask) => {
   const editButton = document.createElement("button");
   editButton.setAttribute("class", "edit-btn");
   editButton.innerHTML = "EDIT";
   editButton.addEventListener("click", (e) => {
     e.preventDefault();
-
     saveBtn.style.display = "inline";
     taskBtn.style.display = "none";
     form.style.display = "block";
-    title.value = listItem.querySelector("h4").innerText;
+    title.value = newTask.name;
     deadline.value = listItem.querySelector("p").innerText;
+    updateTodolist(listItem);
+    return listItem;
   });
-  updateTodoList(todolist, item);
+
   listItem.appendChild(editButton);
 };
-*/
+
+//Function to update changed items
+
+const updateTodolist = (listItem) => {
+  todoList.forEach((element, index) => {
+    if (element.id === listItem.id) {
+      todoList[index] = element;
+    }
+  });
+};
 
 const clearInput = () => {
   form.style.display = "none";
