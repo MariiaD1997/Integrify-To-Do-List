@@ -84,7 +84,7 @@ const renderItem = (item) => {
 };
 
 //create button to add new tasks
-const addTask = () => {
+taskBtn.addEventListener("click", (e) => {
   if (inputText.value !== "") {
     e.preventDefault();
 
@@ -105,7 +105,7 @@ const addTask = () => {
 
     clearInput();
   }
-};
+});
 
 const insertEditBtn = (listItem, title, deadline, newTask) => {
   const editButton = document.createElement("button");
@@ -116,24 +116,23 @@ const insertEditBtn = (listItem, title, deadline, newTask) => {
     saveBtn.style.display = "inline";
     taskBtn.style.display = "none";
     form.style.display = "block";
-    title.value = newTask.name;
-    deadline.value = newTask.deadline;
-    return newTask;
+    inputText.value = newTask.name;
+    inputDeadline.value = newTask.deadline;
+    editedTask = newTask;
+    return editedTask;
   });
-
   listItem.appendChild(editButton);
 };
 
-//Function to update changed items
-
-const updateTodolist = (newTask) => {
+saveBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  renderList(todoList);
   todoList.forEach((element, index) => {
-    if (element.id === newTask.id) {
+    if (element.id === editedTask.id) {
       todoList[index] = element;
     }
   });
-};
-
+});
 const clearInput = () => {
   form.style.display = "none";
   inputText.value = "";
