@@ -9,13 +9,13 @@ const cancelButton = document.getElementById("cancel-button");
 const form = document.getElementById("input-form");
 let borderColor = "";
 
-form.style.display = "none";
+showFormBtn.style.display = "inline";
 saveBtn.style.display = "none";
+form.style.display = "none";
 
-//create event to show input form
 showFormBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  form.style.display = "flex";
+  form.style.display = form.style.display === "block" ? "none" : "block";
 });
 
 //create event to hide input form
@@ -56,7 +56,7 @@ const renderList = (todoList) => {
   });
 };
 
-//create function to make model of new task
+// function to create model of new task
 const renderItem = (item) => {
   const listItem = document.createElement("li");
   const title = item.name;
@@ -66,7 +66,7 @@ const renderItem = (item) => {
   listItem.style.borderLeft = `5px solid ${borderColor}`;
   listItem.id = item.id;
   insertEditBtn(listItem, title, deadline, item);
-  //move delete button into list
+  //move delete button into listItem
   const deleteButton = document.createElement("button");
   deleteButton.setAttribute("class", "delete-btn");
   deleteButton.innerHTML = "DELETE";
@@ -92,7 +92,7 @@ taskBtn.addEventListener("click", (e) => {
     newTask.name = inputText.value;
     newTask.deadline = inputDeadline.value;
     newTask.status = inputOption.value;
-    newTask.id = Math.random().toString(16).slice(2);
+    newTask.id = `${inputText.value}+${inputOption.value}+${inputDeadline.value}`;
 
     //add object into array
     if (inputText.value !== 0) {
@@ -106,6 +106,7 @@ taskBtn.addEventListener("click", (e) => {
   }
 });
 
+//move edit button to the listItem
 const insertEditBtn = (listItem, title, deadline, newTask) => {
   const editButton = document.createElement("button");
   editButton.setAttribute("class", "edit-btn");
@@ -123,6 +124,7 @@ const insertEditBtn = (listItem, title, deadline, newTask) => {
   listItem.appendChild(editButton);
 };
 
+//event to save edited todo and update todo list
 saveBtn.addEventListener("click", (e) => {
   e.preventDefault();
   todoList.forEach((element) => {
@@ -130,12 +132,11 @@ saveBtn.addEventListener("click", (e) => {
       editedTask.name = inputText.value;
       editedTask.deadline = inputDeadline.value;
       editedTask.status = inputOption.value;
-      console.log(editedTask);
-      todoList.push(editedTask);
-      renderList(todoList);
     }
+    renderList(todoList);
+    updateLocalStorage();
+    clearInput();
   });
-  // todoList[index] = element;
 });
 
 const clearInput = () => {

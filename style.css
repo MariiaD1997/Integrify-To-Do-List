@@ -13,7 +13,15 @@ body {
   justify-content: space-around;
   align-content: center;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
+}
+
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: auto;
 }
 
 h1 {
@@ -109,10 +117,22 @@ button:hover {
   background-color: antiquewhite;
   color: #672a4e;
 }
-.title {
+h4 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: 700;
-  margin-right: 2em;
+  font-size: 1.5em;
+  margin: 0;
+  margin-left: 0.8em;
+  color: #672a4e;
+}
+
+p {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 300;
+  font-size: 1.1em;
+  margin: 0.3em;
+  margin-left: 0.8em;
+  color: #672a4e;
 }
 
 .in-progress {
@@ -142,4 +162,5 @@ button:hover {
   font-size: 1em;
   padding: 1em;
   border-radius: 15px;
+  color: antiquewhite;
 }
