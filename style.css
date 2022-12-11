@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(209, 180, 198);
+  background-color: #1f2421;
 }
 
 #show-form-btn {
@@ -29,17 +29,17 @@ h1 {
   margin: 50px;
   font-size: 60px;
   font-family: "Mukta", sans-serif;
-  color: #672a4e;
+  color: #e8ebe4;
 }
 
 input[type="text"] {
   width: 350px;
   height: 50px;
-  border: 2px groove #672a4e;
+  border: 2px groove #1b2845;
   border-radius: 25px;
   margin: 10px;
   font-size: 20px;
-  color: #672a4e;
+  color: #1b2845;
   font-family: "Lora", serif;
 }
 
@@ -47,12 +47,12 @@ button {
   width: 150px;
   height: 55px;
   margin: 10px;
-  color: antiquewhite;
+  color: #e8ebe4;
   font-family: "Lora", serif;
   font-weight: bold;
-  border: 2px groove #672a4e;
+  border: 2px groove #1b2845;
   border-radius: 25px;
-  background-color: #672a4e;
+  background-color: #1b2845;
   font-size: 20px;
 }
 
@@ -81,41 +81,41 @@ input[type="date"] {
   width: 150px;
   height: 55px;
   margin: 10px;
-  color: antiquewhite;
+  color: #e8ebe4;
   font-family: "Lora", serif;
   font-weight: bold;
-  border: 2px groove #672a4e;
+  border: 2px groove #1b2845;
   border-radius: 25px;
-  background-color: #672a4e;
+  background-color: #1b2845;
   font-size: 20px;
 }
 
 #deadline:hover {
-  background-color: antiquewhite;
-  color: #672a4e;
+  background-color: #a30b37;
+  color: #e8ebe4;
 }
 
 #select {
   width: 150px;
   height: 55px;
   margin: 10px;
-  color: antiquewhite;
+  color: #e8ebe4;
   font-family: "Lora", serif;
   font-weight: bold;
-  border: 2px groove #672a4e;
+  border: 2px groove #1b2845;
   border-radius: 25px;
-  background-color: #672a4e;
+  background-color: #1b2845;
   font-size: 20px;
 }
 
 button:hover {
-  background-color: antiquewhite;
-  color: #672a4e;
+  background-color: #a30b37;
+  color: #e8ebe4;
 }
 
 #select:hover {
-  background-color: antiquewhite;
-  color: #672a4e;
+  background-color: #a30b37;
+  color: #e8ebe4;
 }
 h4 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -123,7 +123,7 @@ h4 {
   font-size: 1.5em;
   margin: 0;
   margin-left: 0.8em;
-  color: #672a4e;
+  color: #e8ebe4;
 }
 
 p {
@@ -132,7 +132,7 @@ p {
   font-size: 1.1em;
   margin: 0.3em;
   margin-left: 0.8em;
-  color: #672a4e;
+  color: #e8ebe4;
 }
 
 .in-progress {
