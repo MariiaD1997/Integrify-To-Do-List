@@ -1,12 +1,5 @@
 # To-do list
 
-You can see my to-do list [here](https://mariiad1997.github.io/bof-javascript-todo-list/)
-It is still work in progress and I am trying realy hard!
-
-## Requirements
-
-- title should be unique
-- deadline should be a date in the future
-- status is one of 3 options : `["not started", "in progress", "done"]`
-- form to add/edit tasks should be opened/closed by clicking on a button (see the screenshot)
-- deploy your project to github page and provide link to your live server in README
+You can see my to-do list [here](https://mariiad1997.github.io/Integrify-To-Do-List/)
+This is one of fun and interesting projects that I have done at start of my studying as a student of Integrify. It is a simple to do list where you can create a list of tasks where each of them has unqiue title, possibility of choose status and edit the whole task.
+This project helped me to better understand Javascript logic and practice my CSS knowledges.
